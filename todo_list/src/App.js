@@ -5,6 +5,11 @@ const App = () => {
   const [todo, setTodo] = React.useState("");
   
   // Add the handlesubmit code here
+  // function handleSubmit(e) {
+  //   e.preventDefault(); // ?
+
+    
+  // }
   
   
   // Add the deleteToDo code here
