@@ -54,7 +54,7 @@ const App = () => {
   function deleteTodo(id) {
     console.log('in deleteTodo, id:', id);
 
-    setTodos(todos.filter((todo) => todo.id != id))
+    setTodos(todos.filter((todo) => todo.id !== id))
   }
   
   // Add the toggleComplete code here
@@ -116,20 +116,20 @@ return(
       <div id="todo-list">
         {todos.map((todo) => 
           <div className="todo">
-            <input type="checkbox" id="completed" onChange={() => { toggleComplete(todo.id) }}></input>
-            {todo.id === todoEditId ? 
-              <div>
-                <input
-                  type="text"
-                  value={todoEditText}
-                  onChange={(e) => setTodoEditText(e.target.value )}
-                />
-              </div>
-              :
-              <div className="todo-text">
-                {todo.text} 
-              </div>
-            }
+            <div className="todo-text">
+              <input type="checkbox" id="completed" onChange={() => { toggleComplete(todo.id) }}></input>
+              {todo.id === todoEditId ? 
+                <div>
+                  <input
+                    type="text"
+                    value={todoEditText}
+                    onChange={(e) => setTodoEditText(e.target.value )}
+                  />
+                </div>
+                :
+                <div>{todo.text}</div>
+              }
+            </div>
             <div className="todo-actions">
               <button onClick={() => { deleteTodo(todo.id) }}>
                 Delete
